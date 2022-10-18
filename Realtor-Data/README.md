@@ -1,4 +1,4 @@
-#Export R to Excel
+# Export R to Excel
 
 Code and Excel sheet included in folder. 
 
