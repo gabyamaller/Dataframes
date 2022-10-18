@@ -1,0 +1,58 @@
+---
+title: "Realtor Data"
+author: "Gabriela Amaller"
+date: "2022-10-18"
+output: 
+  html_document:
+    keep_md: true
+    toc: true
+    toc_float: true
+    code_folding: hide
+    fig_height: 6
+    fig_width: 12
+    fig_align: 'center'
+   
+---
+
+```{r, message=FALSE, error=FALSE}
+library(mosaic)
+library(pander)
+library(tidyverse)
+library(DT)
+library(dplyr)
+library(car)
+
+
+```
+
+```{r, message=FALSE, error=FALSE}
+data = read_csv(file="realtor-data.csv")
+```
+```{r, message=FALSE, error=FALSE}
+df <- data %>% 
+  filter(state == "Massachusetts")
+
+df
+```
+
+
+
+
+```{r, message=FALSE, error=FALSE}
+
+#remove na's 
+dataframe <-df %>% 
+  drop_na
+dataframe
+```
+```{r, message=FALSE, error=FALSE}
+
+ #install.packages("writexl")
+#export r to excel 
+library("writexl")
+#write_xlsx(the dataframe name,"path to store the Excel file\\file name.xlsx")
+
+
+write_xlsx(dataframe,"~/Desktop/realtor-data.xlsx")
+```
+
